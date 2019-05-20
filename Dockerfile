@@ -39,7 +39,7 @@ RUN	sed -ri -e 's/^deb-src/#&/' -e '/[a-z]+-security/s/archive.ubuntu.com/securi
 		wget \
 		xorriso \
 		xz-utils \
-		gnupg &&
+		gnupg && \
 	apt-get clean
 
 ADD	fai /etc/fai/
