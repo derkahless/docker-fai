@@ -10,6 +10,8 @@ ENV	MAIN_REPO	us.archive.ubuntu.com
 ADD	keys/074BCDE4.asc /tmp/
 RUN	apt-get update && \
 	apt-get install -y gnupg && \
+	apt-get clean &&
+
 	echo "deb http://fai-project.org/download jessie koeln" >> /etc/apt/sources.list && \
 	apt-key add /tmp/074BCDE4.asc && \
 	rm -f /tmp/074BCDE4.asc
