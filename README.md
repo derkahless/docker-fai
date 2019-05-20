@@ -1,3 +1,9 @@
+
+**FRESHLY FORKED!**
+
+**Work in progress!**
+
+
 # fai
 Code for Docker image of FAI [Fully Automatic Installation](http://fai-project.org/) 4.3.3.  With this image you may create FAI ISO's for Trusted Builds.
 
