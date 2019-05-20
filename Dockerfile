@@ -9,8 +9,9 @@ ENV	MAIN_REPO	us.archive.ubuntu.com
 # Add FAI repository and install GPG key
 ADD	keys/074BCDE4.asc /tmp/
 RUN	apt-get update && \
-	apt-get install -y gnupg && \
-	apt-get clean &&
+	apt-get upgrade -y && \
+	apt-get install -y --no-install-recommends gnupg && \
+	apt-get clean && \
 
 	echo "deb http://fai-project.org/download jessie koeln" >> /etc/apt/sources.list && \
 	apt-key add /tmp/074BCDE4.asc && \
@@ -19,8 +20,6 @@ RUN	apt-get update && \
 # Install packages
 RUN	sed -ri -e 's/^deb-src/#&/' -e '/[a-z]+-security/s/archive.ubuntu.com/security.ubuntu.com/' /etc/apt/sources.list && \
 	sed -i "s/archive\.ubuntu\.com/${MAIN_REPO}/" /etc/apt/sources.list && \
-	apt-get update && \
-	apt-get upgrade -y && \
 	apt-get install --no-install-recommends -y apt-cacher-ng \
 		apt-transport-https \
 		aptitude \
