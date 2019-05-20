@@ -38,7 +38,8 @@ RUN	sed -ri -e 's/^deb-src/#&/' -e '/[a-z]+-security/s/archive.ubuntu.com/securi
 		vim \
 		wget \
 		xorriso \
-		xz-utils && \
+		xz-utils \
+		gnupg &&
 	apt-get clean
 
 ADD	fai /etc/fai/
